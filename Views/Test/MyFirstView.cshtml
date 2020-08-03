@@ -1,0 +1,47 @@
+﻿
+@using Test2.Controllers
+@model List<Test2.Models.ListaCliente>
+@{ 
+    ViewBag.Title = "Mis Datos";
+}
+<h2>@ViewBag.Title</h2>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MyFirstView</title>
+</head>
+<body>
+    <div class="row" >
+        <a href="~/Test/Nuevo" class="btn btn-primary">Nuevo</a>
+    </div>
+    <div class=row>      
+    <table class="table">
+        <thead>
+            <tr>
+                <td>IdCliente</td>
+                <td>Numero</td>
+                <td>Nombre</td>
+            </tr>
+        </thead>
+        <tbody>
+            @{ 
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.IdCliente</td>
+                        <td>@item.Numero</td>
+                        <td>@item.Nombre</td>
+                        <td><a class="btn btn-default" href="~/Test/Editar/@item.IdCliente">Editar</a>
+                            <a class="btn btn-danger" href="~/Test/Eliminar/@item.IdCliente">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    </div>
+</body>
+</html>
